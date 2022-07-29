@@ -13,6 +13,18 @@
 
   <%= render 'layouts/top_nav' %>
 
+  <%# ----- add these lines here: ----- %>
+	
+	<% if notice %>
+      	    <%= notice %>
+	<% end %>
+	
+	<% if alert %>
+      	    <%= alert %>
+	<% end %>
+	
+	<%# ----- end of added lines ----- %>
+  
   <main class="container">
     <%= yield %>
   </main>
