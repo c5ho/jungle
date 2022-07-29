@@ -21,6 +21,11 @@ end
 
 # Let's do this ...
 
+## SALES
+puts "Creating Sales ..."
+
+Sale.create! name: "X-mas Sale!", description: '', starts_on: 'Dec 5, 2022', ends_on: 'Jan 3, 2023', status: 'true', percent_off: 50
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
