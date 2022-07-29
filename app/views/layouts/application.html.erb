@@ -9,35 +9,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
 
-  <%= render 'layouts/top_nav' %>
+    <%= render 'layouts/top_nav' %>
 
-  <%# ----- add these lines here: ----- %>
-	
-	<% if notice %>
-      	    <%= notice %>
-	<% end %>
-	
-	<% if alert %>
-      	    <%= alert %>
-	<% end %>
-	
-	<%# ----- end of added lines ----- %>
-  
-  <main class="container">
-    <%= yield %>
-  </main>
+      <% if current_user %>
+        <!-- current_user will return true if a user is logged in -->
+        <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
+      <% else %>
+        <!-- not logged in -->
+        <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %>
+      <% end %>
+      
+      <hr>
 
-  <%= yield :end_of_body %>
+      <% if notice %>
+        <%= notice %>
+      <% end %>
+      
+      <% if alert %>
+        <%= alert %>
+      <% end %>
+    
+    <main class="container">
+      <%= yield %>
+    </main>
 
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQ</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Help</a></li>
-      <li class="nav-item"><%= link_to 'About Us', :about_index, class: "nav-link px-2 text-muted" %></li>
-    </ul>
-    <p class="text-center text-muted">© 2021 Jungle, Inc</p>
-  </footer>
-</body>
+    <%= yield :end_of_body %>
+
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQ</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Help</a></li>
+        <li class="nav-item"><%= link_to 'About Us', :about_index, class: "nav-link px-2 text-muted" %></li>
+      </ul>
+      <p class="text-center text-muted">© 2021 Jungle, Inc</p>
+    </footer>
+  </body>
 </html>
