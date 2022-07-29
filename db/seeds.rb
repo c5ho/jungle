@@ -25,9 +25,10 @@ end
 
 puts "Finding or Creating Categories ..."
 
-cat1 = Category.find_or_create_by! name: 'Evergreens'
-cat2 = Category.find_or_create_by! name: 'Shrubs'
-cat3 = Category.find_or_create_by! name: 'Trees'
+cat1 = Category.create name: 'Evergreens', description: 'The plants will stay EVER-green.  And I mean forever!'
+cat2 = Category.create name: 'Shrubs', description: 'These plants are perfect for the elves, children or other vertically-challenged loved ones in your lives.  Your pets will love you!'
+cat3 = Category.create name: 'Trees', description: 'Have you hugged a tree today?  If only you had one of these, then you could hug it everyday!'
+
 
 ## PRODUCTS
 
