@@ -4,21 +4,53 @@
     <h1>Admin &raquo; Dashboard</h1>
   </header>
 
-  <div class="panel panel-default products">
-    Products: <% @products.each { |product| %>
-      <%= product.name%>, 
-    <% }%>
-  <br>
-  <h4>Total Products: <%= @products.count%></h4>
-  <%= link_to 'See all Products', [:admin, :products] %>
-  <br>
-  <br>
-    Categories: <% @categories.each { |category| %>
-      <%= category.name%>, 
-    <% }%>
-  <br>
-  <h4>Total Categories: <%= @categories.count%> </h4>
-  </div>
-
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th>  
+        <th></th>
+        <th>Count</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td>
+          <h4>Categories</h4>
+        </td>  
+        <td>
+          <% @categories.order(:name).each { |category| %>
+            <%= category.name%>, 
+          <% }%>
+        </td>
+        <td>
+          <%= @categories.count%>
+        </td>
+        <td>
+          <%= link_to 'Category Details', [:admin, :categories] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>Products</h4>
+        </td>
+        <td>
+          <% @products.order(:name).each { |product| %>
+              <%= product.name%>, 
+          <% }%>
+        </td>
+        <td>
+          <%= @products.count%>
+        </td>
+        <td>
+          <%= link_to 'Product Details', [:admin, :products] %>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+  
 </section>
 
+                                                                                           
