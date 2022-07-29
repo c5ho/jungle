@@ -2,29 +2,39 @@
   <h1>Sign Up</h1>
 </header>
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname, autofocus: true %>
-  </div>
-  <div>
-  <%= f.label :lastname %>
-  <%= f.text_field :lastname, autofocus: true %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= f.submit "Sign up!" %>
+<%= form_for @user do |f| %>
+  <div class="card" style="width: 36rem;">
+    <div class="card-body">
+
+      <div class="mb-3">
+        <%= f.label :firstname, { class: "form-label"} %>
+        <%= f.text_field :firstname, { class: "form-control", placeholder: "Enter your first name", autofocus: "true" } %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :lastname, { class: "form-label"}  %>
+        <%= f.text_field :lastname, { class: "form-control", placeholder: "Enter your last name" }  %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :email, { class: "form-label"}  %>
+        <%= f.text_field :email, { class: "form-control", placeholder: "Enter your email" }   %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password, { class: "form-label"}   %>
+        <%= f.password_field :password, { class: "form-control", placeholder: "Enter your password" }   %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :password_confirmation, { class: "form-label"}   %>
+        <%= f.password_field :password_confirmation, { class: "form-control", placeholder: "Enter your password again" }   %>
+      </div>
+
+      <%= f.submit "Sign up!" %>
+  
+    </div>
   </div>
 <% end %>
