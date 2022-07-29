@@ -94,6 +94,8 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    cssbundling-rails (1.1.1)
+      railties (>= 6.0.0)
     diff-lcs (1.5.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -283,6 +285,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   carrierwave
+  cssbundling-rails
   dotenv-rails
   faker
   font-awesome-rails
