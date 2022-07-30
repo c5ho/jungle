@@ -47,6 +47,22 @@
           <%= link_to 'Product Details', [:admin, :products] %>
         </td>
       </tr>
+      <tr>
+        <td>
+          <h4>Sales</h4>
+        </td>
+        <td>
+          <% @sales.order(:starts_on).each { |sale| %>
+              <%= sale.name%>, 
+          <% }%>
+        </td>
+        <td>
+          <%= @sales.count%>
+        </td>
+        <td>
+          <%= link_to 'Sale Details', [:admin, :sales] %>
+        </td>
+      </tr>
     </tbody>
     
   </table>

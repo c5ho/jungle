@@ -8,6 +8,7 @@ class Admin::DashboardController < ApplicationController
   def show
     @products = Product.all
     @categories = Category.all
+    @sales = Sale.all
   end
   
 end

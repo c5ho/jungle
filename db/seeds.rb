@@ -24,7 +24,10 @@ end
 ## SALES
 puts "Creating Sales ..."
 
-Sale.create! name: "X-mas Sale!", description: '', starts_on: 'Dec 5, 2022', ends_on: 'Jan 3, 2023', status: 'true', percent_off: 50
+Sale.create! name: "X-mas Sale!", description: 'Annual end of year holiday sale', starts_on: 'Dec 5, 2022', ends_on: 'Jan 3, 2023', status: 'true', percent_off: 50
+Sale.create! name: "March Break", description: 'March Break', starts_on: 30.days.ago , ends_on: 20.days.ago, status: 'true', percent_off: 15
+Sale.create! name: "July & August 2022", description: 'Back to school', starts_on: 'July 25, 2022' , ends_on: 'Sept 15, 2022', status: 'true', percent_off: 20
+
 
 ## CATEGORIES
 

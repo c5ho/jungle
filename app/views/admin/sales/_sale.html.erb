@@ -1,24 +1,26 @@
 <tr>
   <td>
-  <h4><%= sale.id %></h4>
+    <%= sale.name %>
   </td>
   <td>
-    <h4><%= sale.name %></h4>
-    <br>
-    <p><%= sale.description %></p>
+    <%= sale.description %>
   </td>
   <td>
-    
+    <%= sale.starts_on %>
   </td>
   <td>
-    <span class="label label-success">Active</span>
-    <span class="label label-danger">Finished</span>
-    <span class="label label-warning">Upcoming</span>
+    <%= sale.ends_on%>
   </td>
   <td>
-
+    <% if sale.ends_on < Date.current %>
+      <span class="label danger">Finished</span>
+    <% elsif sale.starts_on > Date.current %>
+      <span class="label warning">Upcoming</span>
+    <% else %>
+      <span class="label success">Active</span>
+    <% end %>
   </td>
   <td>
-    
+    <%= sale.percent_off %>
   </td>
 </tr>
