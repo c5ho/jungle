@@ -17,22 +17,6 @@
     <tbody>
       <tr>
         <td>
-          <h4>Categories</h4>
-        </td>  
-        <td>
-          <% @categories.order(:name).each { |category| %>
-            <%= category.name%>, 
-          <% }%>
-        </td>
-        <td>
-          <%= @categories.count%>
-        </td>
-        <td>
-          <%= link_to 'Category Details', [:admin, :categories] %>
-        </td>
-      </tr>
-      <tr>
-        <td>
           <h4>Products</h4>
         </td>
         <td>
@@ -45,6 +29,22 @@
         </td>
         <td>
           <%= link_to 'Product Details', [:admin, :products] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>Categories</h4>
+        </td>  
+        <td>
+          <% @categories.order(:name).each { |category| %>
+            <%= category.name%>, 
+          <% }%>
+        </td>
+        <td>
+          <%= @categories.count%>
+        </td>
+        <td>
+          <%= link_to 'Category Details', [:admin, :categories] %>
         </td>
       </tr>
       <tr>
