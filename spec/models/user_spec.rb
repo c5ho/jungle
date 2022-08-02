@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
       password: '12345',
       password_confirmation: '12345'
     })
-    @new_user.save
+    @new_user.save!
   end
   
   # These validations are for new user creation
@@ -100,5 +100,6 @@ RSpec.describe User, type: :model do
       valid_user = User.authenticate_with_credentials('      blah@blah.com ', '12345')
       expect(valid_user).to eq(@new_user)
     end
+    
   end
 end
