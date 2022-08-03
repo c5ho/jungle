@@ -49,7 +49,7 @@
         <% if current_user %>
         <!-- current_user will return true if a user is logged in -->
           <li class="nav-item">
-            <div class="nav-link"><%= "Hello, #{current_user.firstname}" %></div>
+            <div class="nav-link text-warning"><%= "Hello, #{current_user.firstname}" %></div>
           </li>
           <li class="nav-item">
             <%= link_to "Log Out", logout_path, class:"nav-link", method: :delete %>
