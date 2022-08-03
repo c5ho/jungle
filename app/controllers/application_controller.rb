@@ -37,8 +37,5 @@ class ApplicationController < ActionController::Base
     # Look up the current user based on user_id in the session cookie:
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-  
-  # def active_sale?
-  #   @current_sale = 
-  # end
+
 end

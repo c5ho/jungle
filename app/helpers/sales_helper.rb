@@ -5,4 +5,7 @@ module SalesHelper
     Sale.active.any?
   end
   
+  def current_sale
+    Sale.active.first
+  end
 end
