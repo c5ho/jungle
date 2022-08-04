@@ -27,7 +27,8 @@
   
       <% if active_sale? %>
         <div class="alert alert-danger">
-          <h3>There's a <strong><%= current_sale.name %></strong> sale going on! Everything is <strong><%= current_sale.percent_off %>% off!</strong></h3>
+          <h3>There's a <strong><%= current_sale.name %></strong> sale going on! Everything is <strong><%= current_sale.percent_off %>% off!*</strong></h3>
+          <h6>*Sale price will be reflected on item details and in your cart.</h6>
         </div>
       <% end %>
 

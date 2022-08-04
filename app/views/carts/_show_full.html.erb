@@ -14,14 +14,32 @@
       <% end %>
     </tbody>
     <tfoot>
-      <tr>
-        <th colspan="4">
-          TOTAL:
-        </th>
-        <th>
-          $<%= cart_subtotal_cents / 100.0 %>
-        </th>
-      </tr>
+      <% if active_sale? %>
+        <tr>
+          <th colspan="4">
+            Subtotal:
+          </th>
+          <th>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
+          </th>    
+        </tr>  
+        <tr>
+          <th colspan="4">
+            TOTAL with <%= current_sale.percent_off %>% off
+          <th>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 * (1 - current_sale.percent_off.to_f/100) %>
+          </th>    
+        </tr>  
+      <% else %>
+        <tr> 
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
+          </th>
+        </tr>
+      <% end %>
     </tfoot>
   </table>
 </div>

@@ -3,13 +3,14 @@ class ProductsController < ApplicationController
   include SalesHelper
   
   def index
-    if active_sale?
-      @products = Product.all.order(created_at: :desc)
-    end
+    @products = Product.all.order(created_at: :desc)
   end
-
+  
   def show
-    @product = Product.find params[:id]
+    if active_sale?
+      @product = Product.find params[:id]
+      @sale_price = @product.price * (1 - current_sale.percent_off.to_f/100)
+    end
   end
 
 end

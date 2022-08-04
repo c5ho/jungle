@@ -3,8 +3,14 @@
     <%= image_tag product.image.thumb.url , alt: product.name %>
     <h1>
       <span><%= product.name %></span>
-      <span><%= humanized_money_with_symbol product.price %></span>
+        <% if active_sale? %>
+            <span class="text-decoration-line-through"><%= humanized_money_with_symbol product.price %></span>
+          <% else %>
+            <span><%= humanized_money_with_symbol product.price %></span>
+        <% end %>
     </h1>
+
+
   <% end%>
   <div>
     <% if product.soldout? %>

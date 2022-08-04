@@ -15,7 +15,12 @@
       <% else %>
         <div class="quantity">
           <span><%= @product.quantity %> in stock at </span>
-          <span><%= humanized_money_with_symbol @product.price %></span>
+          <% if active_sale? %>
+            <span class="text-decoration-line-through"><%= humanized_money_with_symbol @product.price %></span>
+            <span class="text-danger"><%= humanized_money_with_symbol @sale_price %></span>
+          <% else %>
+            <span><%= humanized_money_with_symbol @product.price %></span>
+          <% end %>
         </div>
         <div class="price">          
           <%= button_to add_item_cart_path(product_id: @product.id), class: 'btn' , method: :post do %>
